@@ -24,6 +24,9 @@ class Blog(BasePlugin):
         chronological = {}
 
         for f in files:
+            if not f.is_documentation_page():
+                continue
+
             parsed = self.parse_url(f.url)
             if parsed:
                 year, month = parsed
