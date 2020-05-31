@@ -56,7 +56,5 @@ class Blog(BasePlugin):
         config['ordered'] = ordered
         config['chronological'] = chronological
 
-        print(chronological)
-
         return nav
 
