@@ -9,8 +9,7 @@ setup(
     packages=['mkdocs_blog'],
     license='LICENSE.txt',
     description='Simple blogging in mkdocs',
-    install_requires=[
-    ],
+    install_requires=['mkdocs', 'jinja2'],
 
     entry_points={
         'mkdocs.plugins': [

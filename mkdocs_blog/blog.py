@@ -1,6 +1,10 @@
 from mkdocs.plugins import BasePlugin
 import os.path
 import datetime
+from jinja2 import Environment
+
+from . import cleaner
+from . import jinja_filters
 
 
 class Blog(BasePlugin):
@@ -16,6 +20,8 @@ class Blog(BasePlugin):
             return None
 
     def on_nav(self, nav, config, files):
+        self.nav = nav
+
         # load all the pages first, so the titles are correct
         for page in nav.pages:
             page.read_source(config)
@@ -59,3 +65,15 @@ class Blog(BasePlugin):
         config['chronological'] = chronological
 
         return nav
+
+    def on_page_content(self, html, page, config, files):
+        env = Environment()
+        env.filters['strftime'] = jinja_filters.strftime
+
+        cleaned = cleaner.clean(html)
+
+        return env.from_string(cleaned).render(
+            config=config,
+            nav=self.nav,
+            files=files
+        )
