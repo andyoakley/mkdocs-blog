@@ -16,6 +16,10 @@ class Blog(BasePlugin):
             return None
 
     def on_nav(self, nav, config, files):
+        # load all the pages first, so the titles are correct
+        for page in nav.pages:
+            page.read_source(config)
+
         # ordered by time
         ordered = []
         # nested by year and month
