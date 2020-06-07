@@ -6,6 +6,7 @@ Features:
 
 - Provides timestamps based on folder structure
 - Enables jinja2 templating
+- Generates a simple RSS feed for recent content
 
 ## Content layout
 

@@ -24,5 +24,6 @@ def generate(nav, config, files):
         'rss.xml'
     )
 
+    os.makedirs(config.data['site_dir'], exist_ok=True)
     with open(output_path, 'w') as f:
         f.write(output)
