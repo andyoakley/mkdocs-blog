@@ -5,7 +5,7 @@ from jinja2 import Environment
 
 from . import cleaner
 from . import jinja_filters
-
+from . import rss
 
 class Blog(BasePlugin):
     def parse_url(self, url):
@@ -63,6 +63,8 @@ class Blog(BasePlugin):
 
         config['ordered'] = ordered
         config['chronological'] = chronological
+
+        rss.generate(nav, config, files)
 
         return nav
 

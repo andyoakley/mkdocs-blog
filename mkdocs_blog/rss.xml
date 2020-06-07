@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+<channel>
+  <title>{{ config.data['site_name'] }}</title>
+  <description>{{ config.data['site_description'] }}</description>
+  <link>{{ config.data['site_url'] }}</link>
+  <atom:link href="{{ urljoin(config.data['site_url'], 'rss.xml') }}" rel="self" type="application/rss+xml" />
+
+{% for p in config['ordered'][-10:] | reverse %}
+  {% set page = p[0] %}
+<item>
+  <title>{{ page.title }}</title>
+  <link>{{ urljoin(config.data['site_url'], page.url) }}</link>
+  <guid>{{ urljoin(config.data['site_url'], page.url) }}</guid>
+</item>
+
+{% endfor %}
+
+</channel>
+
+</rss>
