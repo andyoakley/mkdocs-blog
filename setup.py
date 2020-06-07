@@ -14,8 +14,7 @@ setup(
 
     entry_points={
         'mkdocs.plugins': [
-            'blog = mkdocs_blog:Blog',
+            'blog = mkdocs_blog.blog:Blog',
         ]
     }
 )
-
