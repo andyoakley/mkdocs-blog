@@ -44,3 +44,11 @@ def test_ordered(processed_config):
 
     assert 'ordered' in data
     assert len(data['ordered']) == 3
+
+    prev = datetime(1980, 1, 1)
+    for entry in data['ordered']:
+        page, year, month, mtime = entry
+        this = datetime(year, month, 1)
+
+        assert this >= prev
+        prev = this
