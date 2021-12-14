@@ -18,5 +18,5 @@ Within a month, file modification time is used to provide chronological ordering
 
 ## Examples
 
-- [Archive page](tests/test_data/archive.md), listing posts in chronological order
-- [Recently posted](tests/test_data/recent.md), listed just the most recent posts
+- [Archive page](tests/test_data/docs/archive.md), listing posts in chronological order
+- [Recently posted](tests/test_data/docs/recent.md), listed just the most recent posts
